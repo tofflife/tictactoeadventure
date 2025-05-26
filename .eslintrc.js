@@ -3,7 +3,7 @@ module.exports = {
   extends: [
     'airbnb',
     'airbnb/hooks',
-    'plugin:react-native/all'
+    'plugin:react-native/all',
   ],
   plugins: ['react', 'react-native'],
   env: {
