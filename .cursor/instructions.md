@@ -9,11 +9,12 @@ In the beginning of output, put mark "!" if you read this file and took into acc
 - Write code following functional programming principles
 - Avoid imperative loops and classes
 - Use functional alternatives like map, reduce, filter, etc.
+- Don't put repeatable code in sourcecode files if it might be configured in jest or eslint
 
 ## Linting Process
 1. Never modify the rules section in ESLint configuration
 2. Fix linting errors by modifying the code only
-3. Run ESLint after each change to verify fixes
+3. Run ESLint after each change to verify fixes via `npm run lint`
 4. Repeat until all ESLint errors are resolved
 
 ## Testing Process

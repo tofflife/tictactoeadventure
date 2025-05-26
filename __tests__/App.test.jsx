@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen, StyleSheet } from '@testing-library/react-native';
+import { StyleSheet } from 'react-native';
+import { render, screen } from '@testing-library/react-native';
 import App from '../App';
 
 describe('App', () => {
@@ -12,11 +13,10 @@ describe('App', () => {
   it('has correct styles', () => {
     const { getByText } = render(<App />);
     const helloText = getByText('Hello');
-    
     expect(helloText.props.style).toEqual({
       fontSize: 24,
       fontWeight: 'bold',
       color: StyleSheet.create({}).color || '#FFFFFF',
     });
   });
-}); 
+});
