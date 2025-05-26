@@ -1,20 +1,21 @@
 {
   "name": "tictacadventure",
   "version": "1.0.0",
-  "description": "Tic-tac-toe game with adventure elements",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tofflife/tictactoeadventure.git"
+  "dependencies": {
+    "expo": "~53.0.9",
+    "expo-status-bar": "~2.2.3",
+    "react": "19.0.0",
+    "react-native": "0.79.2"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tofflife/tictactoeadventure/issues"
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
   },
-  "homepage": "https://github.com/tofflife/tictactoeadventure#readme"
+  "private": true
 }
