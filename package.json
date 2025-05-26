@@ -1,0 +1,20 @@
+{
+  "name": "tictacadventure",
+  "version": "1.0.0",
+  "description": "Tic-tac-toe game with adventure elements",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tofflife/tictactoeadventure.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tofflife/tictactoeadventure/issues"
+  },
+  "homepage": "https://github.com/tofflife/tictactoeadventure#readme"
+}
