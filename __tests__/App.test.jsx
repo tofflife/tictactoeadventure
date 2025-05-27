@@ -5,7 +5,9 @@ import App from '../App';
 
 const mockStyle = {
   alignItems: 'center',
-  backgroundColor: '#4CAF50',
+  backgroundColor: '#000000',
+  borderColor: '#FFFFFF',
+  borderWidth: 2,
   borderRadius: 25,
   minWidth: 200,
   paddingHorizontal: 40,
@@ -14,7 +16,7 @@ const mockStyle = {
 
 const mockExitButtonStyles = [
   mockStyle,
-  { backgroundColor: '#f44336' },
+  { borderColor: '#FF4444' },
 ];
 
 jest.mock('react-native', () => ({

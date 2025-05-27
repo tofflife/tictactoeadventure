@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   BackHandler,
   StyleSheet,
@@ -9,20 +10,25 @@ import {
 
 const colors = {
   background: '#000000',
-  buttonPrimary: '#4CAF50',
-  buttonDanger: '#f44336',
+  buttonBackground: '#000000',
+  buttonBorder: '#FFFFFF',
+  buttonDangerBorder: '#FF4444',
   text: '#FFFFFF',
 };
 
+const buttonBaseStyle = {
+  alignItems: 'center',
+  backgroundColor: colors.buttonBackground,
+  borderColor: colors.buttonBorder,
+  borderWidth: 2,
+  borderRadius: 25,
+  minWidth: 200,
+  paddingHorizontal: 40,
+  paddingVertical: 15,
+};
+
 const styles = StyleSheet.create({
-  button: {
-    alignItems: 'center',
-    backgroundColor: colors.buttonPrimary,
-    borderRadius: 25,
-    minWidth: 200,
-    paddingHorizontal: 40,
-    paddingVertical: 15,
-  },
+  button: buttonBaseStyle,
   buttonText: {
     color: colors.text,
     fontSize: 24,
@@ -36,35 +42,52 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   exitButton: {
-    backgroundColor: colors.buttonDanger,
+    borderColor: colors.buttonDangerBorder,
   },
 });
 
+function Button({
+  onPress,
+  testID,
+  style,
+  text,
+}) {
+  return (
+    <TouchableOpacity
+      onPress={onPress}
+      testID={testID}
+      style={style}
+    >
+      <Text style={styles.buttonText}>{text}</Text>
+    </TouchableOpacity>
+  );
+}
+
+Button.propTypes = {
+  onPress: PropTypes.func.isRequired,
+  testID: PropTypes.string.isRequired,
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.arrayOf(PropTypes.object),
+  ]).isRequired,
+  text: PropTypes.string.isRequired,
+};
+
 export default function App() {
-  const handleExit = () => {
-    BackHandler.exitApp();
-  };
-
-  const handleStart = () => {
-    // TODO: Implement game start logic
-  };
-
   return (
     <View style={styles.container}>
-      <TouchableOpacity
+      <Button
         style={styles.button}
-        onPress={handleStart}
+        onPress={() => {}} // Will be implemented later
         testID="start-button"
-      >
-        <Text style={styles.buttonText}>Start</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
+        text="Start"
+      />
+      <Button
         style={[styles.button, styles.exitButton]}
-        onPress={handleExit}
+        onPress={BackHandler.exitApp}
         testID="exit-button"
-      >
-        <Text style={styles.buttonText}>Exit</Text>
-      </TouchableOpacity>
+        text="Exit"
+      />
     </View>
   );
 }

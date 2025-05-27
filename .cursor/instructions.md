@@ -6,10 +6,13 @@ In the beginning of output, put mark "!" if you read this file and took into acc
 
 ## Code Style and Paradigm
 - Act as a professional developer
-- Write code following functional programming principles
+- Write code following functional programming principles. If you need declare dictionary, don't wrap it in function, just use `<variable> = {...}`, `not variable = ()=>{...}`()
+- follow airbnb style
 - Avoid imperative loops and classes
 - Use functional alternatives like map, reduce, filter, etc.
 - Don't put repeatable code in sourcecode files if it might be configured in jest or eslint
+- store components in src\components directory
+- store controls in src\controls directory
 
 ## Linting Process
 1. Never modify the rules section in ESLint configuration
