@@ -11,8 +11,9 @@ In the beginning of output, put mark "!" if you read this file and took into acc
 - Avoid imperative loops and classes
 - Use functional alternatives like map, reduce, filter, etc.
 - Don't put repeatable code in sourcecode files if it might be configured in jest or eslint
-- store components in src\components directory
-- store controls in src\controls directory
+- store components in src\components\<component_name> directory
+- store controls in src\controls\<control_name> directory
+- when you generate new file don't forget to check that last line is empty and last 2 lines don't contain space in the end of line.
 
 ## Linting Process
 1. Never modify the rules section in ESLint configuration

@@ -2,20 +2,10 @@ import React from 'react';
 import { BackHandler } from 'react-native';
 import { render, screen, fireEvent } from '@testing-library/react-native';
 import App from '../App';
-
-const mockStyle = {
-  alignItems: 'center',
-  backgroundColor: '#000000',
-  borderColor: '#FFFFFF',
-  borderWidth: 2,
-  borderRadius: 25,
-  minWidth: 200,
-  paddingHorizontal: 40,
-  paddingVertical: 15,
-};
+import { buttonBaseStyle } from '../src/components/Button';
 
 const mockExitButtonStyles = [
-  mockStyle,
+  buttonBaseStyle,
   { borderColor: '#FF4444' },
 ];
 
@@ -50,7 +40,7 @@ describe('App', () => {
     const startButton = getByTestId('start-button');
     const exitButton = getByTestId('exit-button');
 
-    expect(startButton.props.style).toEqual(mockStyle);
+    expect(startButton.props.style).toEqual(buttonBaseStyle);
     expect(exitButton.props.style).toEqual(mockExitButtonStyles);
   });
 
@@ -61,12 +51,10 @@ describe('App', () => {
     expect(BackHandler.exitApp).toHaveBeenCalledTimes(1);
   });
 
-  it('has handleStart function prepared', () => {
+  it('has start button with empty handler', () => {
     const { getByTestId } = render(<App />);
     const startButton = getByTestId('start-button');
     fireEvent.press(startButton);
-    // Currently, handleStart is just a placeholder
-    // This test ensures it exists and can be called without errors
     expect(startButton).toBeTruthy();
   });
 });
