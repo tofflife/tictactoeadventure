@@ -1,10 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   BackHandler,
   StyleSheet,
   View,
 } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Button, { buttonBaseStyle } from './src/components/Button';
+import Game from './src/views/Game';
 
 const colors = {
   background: '#000000',
@@ -25,12 +29,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function App() {
+export function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Button
         style={styles.button}
-        onPress={() => {}} // Will be implemented later
+        onPress={() => navigation.navigate('Game')}
         testID="start-button"
         text="Start"
       />
@@ -41,5 +45,28 @@ export default function App() {
         text="Exit"
       />
     </View>
+  );
+}
+
+HomeScreen.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Game" component={Game} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
