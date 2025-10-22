@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   BackHandler,
   StyleSheet,
+  Text,
   View,
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -13,6 +14,7 @@ import Game from './src/views/Game';
 const colors = {
   background: '#000000',
   buttonDangerBorder: '#FF4444',
+  text: '#FFFFFF',
 };
 
 const styles = StyleSheet.create({
@@ -27,11 +29,16 @@ const styles = StyleSheet.create({
   exitButton: {
     borderColor: colors.buttonDangerBorder,
   },
+  helloText: {
+    color: colors.text,
+    fontSize: 24,
+  },
 });
 
 export function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
+      <Text style={styles.helloText} testID="hello-world-text">Hello world</Text>
       <Button
         style={styles.button}
         onPress={() => navigation.navigate('Game')}

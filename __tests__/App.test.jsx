@@ -41,6 +41,12 @@ describe('HomeScreen', () => {
     jest.clearAllMocks();
   });
 
+  it('renders "Hello world" text', () => {
+    const { getByText } = render(<HomeScreen navigation={mockNavigation} />);
+    const helloText = getByText('Hello world');
+    expect(helloText).toBeTruthy();
+  });
+
   it('renders start and exit buttons', () => {
     const { getByText } = render(<HomeScreen navigation={mockNavigation} />);
     const startButton = getByText('Start');
